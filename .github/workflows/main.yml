@@ -19,7 +19,7 @@ qiime dada2 denoise-paired --i-demultiplexed-seqs [Your demultiplexed data file]
 qiime vsearch cluster-features-de-novo --i-table table.qza --i-sequences representative_sequences.qza --p-perc-identity 1.00 --p-threads 50 --output-dir ASVs
 
 #Classify your sequences with a classifier of choice trained for Qiime2. 
-qiime feature-classifier classifiy-sklearn --i-reads clustered_sequences.qza --i-classifier [Your chosen classifier] --p-n-jobs 20 --output-dir classify
+qiime feature-classifier classify-sklearn --i-reads clustered_sequences.qza --i-classifier [Your chosen classifier] --p-n-jobs 20 --output-dir classify
 
 #Align your metadata file with your original table- this will allow you to visualize your data
 qiime feature-table filter-samples --i-table table.qza --m-metadata-file [Your metadata file] --o-filtered-table filtered_table.qza
