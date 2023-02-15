@@ -30,7 +30,7 @@ qiime taxa barplot --i-table filtered_table.qza --i-taxonomy classification.qza 
 #Filtering your classified sequences. You may want to filter your table based on a variety of factors. The following code can be used to do so. 
 
 #Frequency-based filtering. This step will remove samples containing a sequence number below a certain threshold. 
-qiime feature-table filter-samples --i-table [Your table] --p-min-frequency 1500 --o-filtered-table sample-frequency-filtered-table.qza
+qiime feature-table filter-samples --i-table [Your table] --p-min-frequency 1000 --o-filtered-table sample-frequency-filtered-table.qza
 
 #Sample-based filtering. This step will remove samples which you do not want to include in your final analysis. You will need to make a second metadata file that only includes the 
 #samples you want. 
