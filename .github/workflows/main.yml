@@ -13,7 +13,8 @@ qiime demux summarize --i-data [Your demultiplexed data file] --o-visualization 
 
 #Quality filtering step with dada2- this step will remove chimeras and singletons and correct errors in the sequences.
 #The output directory is where you will perform the rest of the Qiime pipeline and analyze your data. 
-qiime dada2 denoise-paired --i-demultiplexed-seqs [Your demultiplexed data file] --p-trunc-len-f 0 --p-trunc-len-r 0 --p-n-threads 20 --output-dir filtered
+qiime dada2 denoise-paired --i-demultiplexed-seqs [Your demultiplexed data file] --p-trunc-len-f 200 --p-trunc-len-r 180 --p-n-threads 20 --output-dir filtered #16S processing 
+qiime dada2 denoise-paired --i-demultiplexed-seqs [Your demultiplexed data file] --p-trunc-len-f 30 --p-trunc-len-r 180 --p-n-threads 20 --output-dir filtered #18S processing
 
 #Cluster your sequences based on identity- here we will use 100% identity for ASVs. This will create an output directory in which you will classify your sequences. 
 qiime vsearch cluster-features-de-novo --i-table table.qza --i-sequences representative_sequences.qza --p-perc-identity 1.00 --p-threads 50 --output-dir ASVs
