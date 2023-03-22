@@ -45,7 +45,8 @@ qiime feature-table filter-samples --i-table [Your table] --p-min-frequency 1000
 qiime feature-table filter-samples --i-table [Your classification] --m-metadata-file [Your classification table] --o-filtered-table id-filtered-table.qza
 
 #Sequence-based filtering. This step will remove unwanted sequences from your table- unassigned, chloroplast, vertebrate, etc. You can also determine what sequences you'd like to keep
-#It is not necessary to use both "--p-include" and "--p-exclude" in your code but you can. 
+#It is not necessary to use both "--p-include" and "--p-exclude" in your code but you can. For 16S reads, we removed Chloroplast and Unassigned. For 18S reads, we removed metazoans, Unassigned, 
+#and those reads not refined to the class level (p-include c)
 qiime taxa filter-table --i-table [Your table] --i-taxonomy classification.qza --p-include [Samples to include] --p-exclude [Samples to be excluded] 
 --o-filtered-sequences sequence-filtered-table.qza
 #########################################################################################################################################################################################
