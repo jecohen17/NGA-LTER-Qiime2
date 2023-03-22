@@ -11,6 +11,13 @@ qiime tools import --type 'SampleData[PairedEndSequencesWithQuality]' --input-pa
 #View your demultiplexed file stats - this will tell you 
 qiime demux summarize --i-data [Your demultiplexed data file] --o-visualization demux.qzv
 
+#Run Cutadapt using primers of choice
+
+#16S
+qiime cutadapt trim-paired --i-demultiplexed-sequences combined-demux-16S-v2.qza --p-front-f GTGCCAGCMGCCGCGGTAA --p-front-r GGACTACHVGGGTWTCTAAT --p-match-read-wildcards --o-trimmed-sequences final-cut-demux-16.qza
+#18S
+qiime cutadapt trim-paired --i-demultiplexed-sequences combined-demux.qza --p-front-f TTGTACACACCGCCC --p-front-r CCTTCYGCAGGTTCACCTAC --p-match-read-wildcards --o-trimmed-sequences final-cut-demux-18.qza
+
 #Quality filtering step with dada2- this step will remove chimeras and singletons and correct errors in the sequences.
 #The output directory is where you will perform the rest of the Qiime pipeline and analyze your data. 
 qiime dada2 denoise-paired --i-demultiplexed-seqs [Your demultiplexed data file] --p-trunc-len-f 200 --p-trunc-len-r 180 --p-n-threads 20 --output-dir filtered #16S processing 
