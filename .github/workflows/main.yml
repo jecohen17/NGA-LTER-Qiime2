@@ -5,7 +5,7 @@
 #Activate Qiime2.2021.2 in Chinook
 conda activate qiime2.2021.2
 
-#Import demulitplexed paired-end sequences into Qiime2
+#Import demulitplexed paired-end sequences into Qiime2. Manifest file refers to full metadata sheet as seen on the hard drive
 qiime tools import --type 'SampleData[PairedEndSequencesWithQuality]' --input-path [Your Manifest File] --output-path combined-demux.qza --input-format PairedEndFastqManifestPhred33V2
 
 #View your demultiplexed file stats - this will tell you 
